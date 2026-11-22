@@ -1,0 +1,28 @@
+//输入一行小写字母，连续相同字母写成`字母+次数`，只出现 1 次就只写字母。字符串长度≤80，代码至少两条注释。
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main(void)
+{
+    char s[85];
+    int i, cnt;
+    scanf("%s", s);  //读取输入的小写字母字符串
+
+    //遍历字符串，i从0开始
+    for (i = 0; s[i] != '\0'; )
+    {
+        cnt = 1;
+        //统计当前字符连续出现多少次
+        while (s[i] == s[i + 1])
+        {
+            cnt++;
+            i++;
+        }
+        printf("%c", s[i]);
+        if (cnt > 1)  //次数大于1才输出数字
+        {
+            printf("%d", cnt);
+        }
+        i++;
+    }
+    return 0;
+}
